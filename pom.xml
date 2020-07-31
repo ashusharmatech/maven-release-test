@@ -11,26 +11,23 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.amashchenko.maven.plugin</groupId>
-                <artifactId>gitflow-maven-plugin</artifactId>
-                <version>1.14.0</version>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.0-M1</version>
                 <configuration>
-
-                    <installProject>false</installProject>
-                    <verbose>false</verbose>
-                    <keepBranch>true</keepBranch>
-                    <skipTestProject>true</skipTestProject>
-
-                    <gitFlowConfig>
-                        <productionBranch>master</productionBranch>
-                        <developmentBranch>develop</developmentBranch>
-                        <featureBranchPrefix>feature/</featureBranchPrefix>
-                        <releaseBranchPrefix>release/</releaseBranchPrefix>
-                        <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
-                        <versionTagPrefix></versionTagPrefix>
-                        <origin>origin</origin>
-                    </gitFlowConfig>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <!-- Keep changes in the local repo, push will be done afterwards -->
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+                    <!-- Use a better name for the tag -->
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.11.2</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
