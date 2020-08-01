@@ -4,10 +4,10 @@
 
     <groupId>com.github.ashusharmatech</groupId>
     <artifactId>maven-release-test</artifactId>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.12</version>
     <scm>
         <developerConnection>scm:git:https://github.com/ashusharmatech/maven-release-test.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>v1.0.12</tag>
   </scm>
     <build>
         <plugins>
