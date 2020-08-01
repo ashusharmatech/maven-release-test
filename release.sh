@@ -15,12 +15,13 @@ releaseVersion=1.0.11
 # The next development version
 developmentVersion=1.0.12-SNAPSHOT
 # Provide an optional comment prefix, e.g. for your bug tracking system
-scmCommentPrefix='GST-1234: '
+scmCommentPrefix='TICKET-1234: '
 
 # Start the release by creating a new release branch
 git checkout -b release/$releaseVersion develop
 
 # The Maven release
+echo 'mvn --batch-mode release:prepare release:perform -DscmCommentPrefix="$scmCommentPrefix" -DreleaseVersion=$releaseVersion -DdevelopmentVersion=$developmentVersion'
 mvn --batch-mode release:prepare release:perform -DscmCommentPrefix="$scmCommentPrefix" -DreleaseVersion=$releaseVersion -DdevelopmentVersion=$developmentVersion
 
 # Clean up and finish
